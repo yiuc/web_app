@@ -13,7 +13,6 @@ phases:
       - echo Building the Docker image...
       - REPO_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME
       - docker build --tag $REPO_URI:latest --tag $REPO_URI:$IMAGE_TAG .
-      - deployment/deploy.sh $IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
@@ -23,5 +22,6 @@ phases:
       - docker push $REPO_URI:$IMAGE_TAG
       - echo Writing image definitions file...
       - printf '[{"name":"%s","imageUri":"%s"}]' "$CONTAINER_NAME" "$REPO_URI:$IMAGE_TAG" | tee imagedefinitions.json
+      - deployment/deploy.sh $IMAGE_TAG
 artifacts:
   files: imagedefinitions.json
