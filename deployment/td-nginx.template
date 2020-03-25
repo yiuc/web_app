@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "web",
-      "image": repo-kaios-ecr:@VERSION@,
+      "image": "repo-kaios-ecr:@VERSION@",
       "memory": 128,
       "portMappings": [
         {
