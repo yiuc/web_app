@@ -1,0 +1,16 @@
+{
+  "family": "kaios",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "repo-kaios-ecr:@VERSION@",
+      "memory": 128,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "protocol": "tcp"
+        }
+      ]    
+    }
+  ]
+}
