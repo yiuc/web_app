@@ -13,7 +13,7 @@ phases:
       - echo Building the Docker image...
       - REPO_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME
       - docker build --tag $REPO_URI:latest --tag $REPO_URI:$IMAGE_TAG .
-      - deployment/deploy.sh CONTAINER_VERSION=repo-kaios-ecr:latest
+      - deployment/deploy.sh $REPO_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
