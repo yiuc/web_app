@@ -11,8 +11,8 @@
           "protocol": "tcp"
         }
       ],
-      "StartTimeout" : 60,
-      "StopTimeout" : 60
+      "startTimeout" : 60,
+      "stopTimeout" : 60
     }
   ]
 }
