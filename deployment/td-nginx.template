@@ -1,8 +1,8 @@
 {
-  "family": "nginx",
+  "family": "kaios",
   "containerDefinitions": [
     {
-      "name": "nginx",
+      "name": "web",
       "image": @VERSION@,
       "memory": 128,
       "portMappings": [
