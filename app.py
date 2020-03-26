@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def get_index():
     count = 0
-    return 'v1\n'.format(count)
+    return 'v2\n'.format(count)
 
 @app.route('/ad')
 def get_ad():
