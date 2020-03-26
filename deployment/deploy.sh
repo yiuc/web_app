@@ -10,7 +10,7 @@ TASKDEFINITION_ARN=$( < REGISTERED_TASKDEF.json jq .taskDefinition.taskDefinitio
 app_spec_content_string=$(jq -nc \
   --arg container_name "web" \
   --arg container_port "5000" \
-  --arg task_definition_arn "$TASKDEFINITION_ARN" \
+  --arg task_definition_arn "${TASKDEFINITION_ARN//\"}" \
   '{version: 1, Resources: [{TargetService: {Type: "AWS::ECS::Service", Properties: {TaskDefinition: $task_definition_arn, LoadBalancerInfo: {ContainerName: $container_name, ContainerPort: $container_port}}}}]}')
 app_spec_content_sha256=$(echo -n "$app_spec_content_string" | shasum -a 256 | sed 's/ .*$//')
 revision="revisionType=AppSpecContent,appSpecContent={content='$app_spec_content_string',sha256=$app_spec_content_sha256}"
