@@ -15,7 +15,7 @@ app_spec_content_string=$(jq -nc \
 app_spec_content_sha256=$(echo -n "$app_spec_content_string" | shasum -a 256 | sed 's/ .*$//')
 revision="revisionType=AppSpecContent,appSpecContent={content='$app_spec_content_string',sha256=$app_spec_content_sha256}"
 
-aws --profile example deploy create-deployment \
+aws deploy create-deployment \
   --application-name="kaios-deploy" \
   --deployment-group-name="kaios-deploy" \
   --revision="$revision"
