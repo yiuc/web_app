@@ -11,14 +11,6 @@
           "protocol": "tcp"
         }
       ],
-      "logConfiguration": {
-          "logDriver": "awslogs",
-          "options": {
-              "awslogs-group": "awslogs-kaios",
-              "awslogs-region": "eu-west-1",
-              "awslogs-stream-prefix": "awslogs-kaios"
-          }
-      },
       "startTimeout" : 60,
       "stopTimeout" : 60
     }
